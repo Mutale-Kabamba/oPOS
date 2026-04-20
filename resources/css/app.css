@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+@layer base {
+	:root {
+		--eco-forest: #0B4D2C;
+		--vibrant-lime: #32CD32;
+		--recycle-orange: #FF6B35;
+		--cloud: #F4F7F5;
+		--charcoal: #1A1A1A;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--vibrant-lime);
+		outline-offset: 2px;
+	}
+}
+
+@layer components {
+	.ui-interactive {
+		@apply transition duration-200 ease-out;
+	}
+
+	.ui-card {
+		@apply transition duration-200 ease-out;
+	}
+
+	.stat-grid {
+		@apply grid gap-3;
+	}
+
+	.stat-card {
+		@apply rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm;
+	}
+
+	.stat-card-wide {
+		@apply sm:col-span-2 xl:col-span-1;
+	}
+
+	.stat-head {
+		@apply flex items-start justify-between gap-3;
+	}
+
+	.stat-title {
+		@apply text-xs font-medium uppercase tracking-wide text-slate-500;
+	}
+
+	.stat-value {
+		@apply mt-2 text-xl font-bold leading-tight text-black tabular-nums sm:text-2xl;
+	}
+
+	.stat-value-sm {
+		@apply mt-2 text-lg font-bold leading-tight text-black tabular-nums sm:text-xl;
+	}
+
+	.stat-icon {
+		@apply inline-flex h-7 w-7 items-center justify-center rounded-lg;
+	}
+
+	.ui-card:hover {
+		transform: translateY(-1px);
+	}
+}
+
+@layer utilities {
+	.transition-soft {
+		transition: all 180ms ease-out;
+	}
+
+	.focus-lime {
+		@apply focus:outline-none focus:ring-2 focus:ring-[#32CD32] focus:ring-offset-1;
+	}
+}
+
+/* Global polish for modern SaaS interactions */
+button,
+a,
+input,
+select,
+textarea {
+	transition: all 180ms ease-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	border-color: #32CD32;
+	box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.18);
+}
+
+button:hover,
+a:hover {
+	filter: saturate(1.03);
+}
+
+tbody tr {
+	transition: background-color 150ms ease-out;
+}
+
+.table-shell {
+	overflow-x: auto;
+}
+
+.table-compact {
+	min-width: 100%;
+	border-collapse: collapse;
+}
+
+.table-compact th,
+.table-compact td {
+	vertical-align: middle;
+}
+
+.cell-truncate {
+	max-width: 18rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.actions-compact {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: nowrap;
+}
+
+.actions-compact form {
+	margin: 0;
+	flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+	.table-compact {
+		min-width: 640px;
+		font-size: 0.75rem;
+	}
+
+	.table-compact th,
+	.table-compact td {
+		padding: 0.55rem 0.65rem;
+		white-space: nowrap;
+	}
+
+	.table-compact .inline-flex,
+	.table-compact .rounded-full {
+		white-space: nowrap;
+	}
+
+	.cell-truncate {
+		max-width: 10.5rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}
