@@ -32,11 +32,10 @@ class PosPanelProvider extends PanelProvider
                 'success' => Color::hex('#32CD32'),
                 'warning' => Color::hex('#FF6B35'),
             ])
+            ->pages([
+                \App\Filament\Pos\Pages\PosDashboard::class,
+            ])
             ->navigationItems([
-                NavigationItem::make('New Sale')
-                    ->url(fn () => route('pos.sell'))
-                    ->icon('heroicon-o-shopping-cart')
-                    ->sort(1),
                 NavigationItem::make('My Sales')
                     ->url(fn () => route('pos.sales.index'))
                     ->icon('heroicon-o-clipboard-document-list')

@@ -6,10 +6,17 @@ use App\Models\PosSale;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
+use Livewire\Attributes\On;
 
 class PosRecentSalesTable extends BaseWidget
 {
     protected static ?int $sort = 2;
+
+    #[On('sale-completed')]
+    public function saleCompleted(): void
+    {
+        // Triggers re-render to refresh table
+    }
 
     protected int|string|array $columnSpan = 'full';
 

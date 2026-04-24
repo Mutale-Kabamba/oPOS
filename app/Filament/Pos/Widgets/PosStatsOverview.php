@@ -7,10 +7,17 @@ use App\Models\PettyCashExpense;
 use App\Models\PosSale;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Livewire\Attributes\On;
 
 class PosStatsOverview extends StatsOverviewWidget
 {
     protected static ?int $sort = 1;
+
+    #[On('sale-completed')]
+    public function saleCompleted(): void
+    {
+        // Triggers re-render to refresh stats
+    }
 
     protected function getStats(): array
     {
